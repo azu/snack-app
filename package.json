@@ -1,0 +1,40 @@
+{
+  "name": "snack-app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azu/snack-app.git"
+  },
+  "email": "azuciao@gmail.com",
+  "homepage": "https://github.com/azu/snack-app",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azu/snack-app/issues"
+  },
+  "version": "1.0.0",
+  "description": "snack like slack.",
+  "main": "snack.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "slack",
+    "webview"
+  ],
+  "author": "azu",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "electron-prebuilt": "^0.33.8"
+  },
+  "dependencies": {
+    "electron-template-menu": "^1.0.3",
+    "fs-jetpack": "^0.7.0",
+    "material-flux": "^1.2.3",
+    "mkdirp": "^0.5.1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  }
+}
