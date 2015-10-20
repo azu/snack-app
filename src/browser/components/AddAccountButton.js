@@ -3,16 +3,16 @@
 import React from "react";
 export default class AddAccountButton extends React.Component {
     addSlackURL(event) {
+        event.preventDefault();
         var url = this.refs.inputURL.value;
         this.props.addSlackURL(url);
-        event.preventDefault();
     }
 
     render() {
         return <div className="AddAccountButton">
             <form onSubmit={this.addSlackURL.bind(this)}>
-                <input type="text" ref="inputURL" placeholder="https://<your-team>.slack.com/"/>
-                <button onClick={this.addSlackURL.bind(this)}>Add Slack URL</button>
+                <input type="text" ref="inputURL"/>
+                <input type="submit" value="Add Slack URL"/>
             </form>
         </div>
     }

@@ -7,6 +7,9 @@ import AddAccountButton from "./components/AddAccountButton"
 import SlackWebView from "./components/SlackWebView"
 import AppContext from "./AppContext";
 const context = new AppContext();
+
+const {AccountAction} = context;
+const addSlackURL = AccountAction.addSlackURL.bind(AccountAction);
 class App extends React.Component {
     constructor(...args) {
         super(...args);
@@ -15,7 +18,7 @@ class App extends React.Component {
         })
     }
 
-    updateState(){
+    updateState() {
         this.setState(context.AccountStore.state);
     }
 
@@ -24,10 +27,11 @@ class App extends React.Component {
     }
 
     render() {
-        var current = this.state.accounts[0];
+        var current = this.state.currentAccount;
         return <div className="App">
-            <SideAccountList accounts={this.state.accounts}/>
-            <AddAccountButton addSlackURL={context.AccountAction.addSlackURL.bind(context.AccountAction)}/>
+            <SideAccountList accounts={this.state.accounts}
+                             switchAccount={AccountAction.switchAccount.bind(AccountAction)}/>
+            <AddAccountButton addSlackURL={addSlackURL}/>
             <SlackWebView url={current ? current.URL : null}/>
         </div>
     }

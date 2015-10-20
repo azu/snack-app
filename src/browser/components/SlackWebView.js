@@ -3,6 +3,7 @@
 import React from "react";
 export default class SlackWebView extends React.Component {
     render() {
+        console.log(this.props.url);
         if (this.props.url == null) {
             return <div className="SlackWebView">
             </div>;

@@ -8,9 +8,17 @@ export default class AccountStore extends Store {
         super(...args);
         this.storage = new Storage("slack-account");
         this.state = {
+            currentAccount: null,
             accounts: this.storage.get("accounts") || []
         };
         this.register(keys.addSlackURL, this.addSlackURL);
+        this.register(keys.switchAccount, this.switchAccount);
+    }
+
+    switchAccount(account) {
+        this.setState({
+            currentAccount: account
+        });
     }
 
     addSlackURL(URL) {
@@ -19,13 +27,13 @@ export default class AccountStore extends Store {
         if (!domain) {
             return;
         }
+        let accounts = this.state.accounts || [];
         let alreadyInList = accounts.some(({name, URL}) => {
             return domain === name;
         });
         if (alreadyInList) {
-            reutrn;
+            return;
         }
-        let accounts = this.state.accounts || [];
         accounts.push({
             name: domain,
             URL: URL
