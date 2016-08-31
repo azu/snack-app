@@ -1,7 +1,6 @@
 // LICENSE : MIT
 "use strict";
-var remote = require("remote");
-var app = remote.require("app");
+const {app} = require('electron').remote;
 import path from "path";
 import assert from "assert";
 import jetpack from "fs-jetpack";

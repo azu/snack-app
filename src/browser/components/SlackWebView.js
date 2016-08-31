@@ -14,7 +14,7 @@ export default class SlackWebView extends React.Component {
         });
         slack.addEventListener("did-finish-load", function () {
             console.log("load");
-            slack.executeJavaScript(`window.Notification = ${Growl}`);
+            // slack.executeJavaScript(`window.Notification = ${Growl}`);
         });
     }
 
@@ -24,7 +24,9 @@ export default class SlackWebView extends React.Component {
             </div>;
         }
         return <div className="SlackWebView">
-            <webview ref="slack" src={this.props.url} httpreferrer={this.props.url}
+            <webview ref="slack"
+                     src={this.props.url}
+                     httpreferrer={this.props.url}
                      allowpopups
                      autosize="on" height="100%" width="100%" minwidth="576" minheight="432"/>
         </div>
